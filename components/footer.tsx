@@ -65,7 +65,7 @@ export function Footer() {
               <Logo size="lg" href="/" />
             </div>
             <p className="text-[#404040] text-xs sm:text-sm text-pretty transition-all duration-500 hover:text-[#262626]">
-              <strong className="text-[#1a1a1a]">CHICCOMET L.L.C- FZ</strong> - Trusted Linen Excellence. Premium-quality linen for hotels, corporate clients, and individual customers. Where quality meets elegance.
+              <strong className="text-[#1a1a1a]">CHICCOMET L.L.C- FZ</strong> - Premium Corporate Gifting. Elevate your brand with custom merchandising, employee welcome kits, and sustainable products. Your partner in corporate excellence.
             </p>
           </div>
 

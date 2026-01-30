@@ -14,235 +14,198 @@ const seedData = async () => {
     await Category.deleteMany({})
     console.log('Cleared existing data')
 
-    // 1. Seed Categories first
-    const treatmentCategory = await Category.create({
-      name: "Treatment Systems",
-      description: "Professional hair treatment systems",
+    // 1. Seed Categories
+    const techCategory = await Category.create({
+      name: "Tech & Gadgets",
+      description: "Premium tech accessories for the modern professional",
       isActive: true,
       sortOrder: 1,
-      attributes: [{ name: "Size", type: "text", required: true }]
+      attributes: [{ name: "Color", type: "text", required: true }]
     })
 
-    const hairCareCategory = await Category.create({
-      name: "Hair Care",
-      description: "Daily hair care products",
+    const drinkwareCategory = await Category.create({
+      name: "Drinkware",
+      description: "Sustainable and stylish bottles, mugs, and tumblers",
       isActive: true,
       sortOrder: 2,
-      attributes: [{ name: "Size", type: "text", required: true }]
+      attributes: [{ name: "Capacity", type: "text", required: true }]
+    })
+
+    const officeCategory = await Category.create({
+      name: "Office Essentials",
+      description: "Notebooks, pens, and desk organizers",
+      isActive: true,
+      sortOrder: 3,
+      attributes: [{ name: "Material", type: "text", required: false }]
+    })
+
+    const apparelCategory = await Category.create({
+      name: "Apparel",
+      description: "Custom branded hoodies, t-shirts, and caps",
+      isActive: true,
+      sortOrder: 4,
+      attributes: [{ name: "Size", type: "select", options: ["S", "M", "L", "XL", "XXL"], required: true }]
+    })
+
+    const welcomeKitCategory = await Category.create({
+      name: "Welcome Kits",
+      description: "Curated onboarding boxes for new employees",
+      isActive: true,
+      sortOrder: 5,
+      attributes: [{ name: "Theme", type: "text", required: false }]
     })
 
     console.log('Seeded categories')
 
-    // 2. Seed Products with Category IDs
+    // 2. Seed Products
     const products = [
+      // Tech & Gadgets
       {
-        name: "ChicComet Expert Liss System",
-        category: treatmentCategory._id,
-        price: 299.99,
-        originalPrice: 349.99,
-        image: "/images/expert-liss-system.jpeg",
-        images: [
-          "/images/expert-liss-system.jpeg",
-          "/images/expert-liss-range.jpeg"
-        ],
+        name: "Pro Wireless Charging Pad",
+        category: techCategory._id,
+        price: 85.00,
+        image: "/images/tech-charger.jpg",
+        // using placeholders or generic names, update with real images if available later
         rating: 4.8,
-        reviews: 124,
-        description: "Professional keratin straightening system for silky smooth hair. This advanced treatment system delivers salon-quality results at home with our premium keratin formula.",
-        features: [
-          "Professional-grade keratin formula",
-          "Long-lasting straightening effect",
-          "Safe for all hair types",
-          "Includes complete application kit",
-          "Results last up to 3 months"
-        ],
-        ingredients: [
-          "Keratin Protein",
-          "Hyaluronic Acid",
-          "Argan Oil",
-          "Vitamin E",
-          "Natural Extracts"
-        ],
+        reviews: 42,
+        description: "Fast wireless charging pad with premium fabric finish. Customizable with your company logo. Supports Qi-enabled devices.",
+        features: ["15W Fast Charging", "Premium Fabric Finish", "Overheat Protection", "Custom Logo Printing"],
         inStock: true,
-        isNewProduct: true,
-        isBestSeller: true,
-        sku: "KG-ELS-001",
-        weight: "500ml",
-        size: "Professional Kit",
-        stock: 50,
-        status: "active"
+        sku: "TECH-WCP-001",
+        businessType: "B2B",
+        minOrderQuantity: 10
       },
       {
-        name: "ChicComet Inforcer Range",
-        category: hairCareCategory._id,
-        price: 199.99,
-        originalPrice: null,
-        image: "/images/inforcer-range.jpeg",
-        images: [
-          "/images/inforcer-range.jpeg",
-          "/images/inforcer-system.jpeg"
-        ],
-        rating: 4.6,
-        reviews: 89,
-        description: "Strengthening and fortifying hair care range designed to rebuild damaged hair from within. Perfect for chemically treated or damaged hair.",
-        features: [
-          "Deep strengthening formula",
-          "Repairs damaged hair structure",
-          "Prevents future damage",
-          "Suitable for daily use",
-          "Professional results"
-        ],
-        ingredients: [
-          "Keratin Complex",
-          "Collagen",
-          "Biotin",
-          "Amino Acids",
-          "Natural Proteins"
-        ],
-        inStock: true,
-        isNewProduct: false,
-        isBestSeller: true,
-        sku: "KG-IR-002",
-        weight: "300ml",
-        size: "Standard",
-        stock: 75,
-        status: "active"
-      },
-      {
-        name: "ChicComet Nourishing System",
-        category: treatmentCategory._id,
-        price: 249.99,
-        originalPrice: 299.99,
-        images: [
-          "/images/nourishing-system.jpeg",
-          "/images/nourishing-range.jpeg"
-        ],
-        rating: 4.7,
-        reviews: 67,
-        description: "Deep nourishing treatment for damaged hair. Restore moisture and vitality to your hair with our premium nourishing system.",
-        features: [
-          "Deep moisture restoration",
-          "Repairs split ends",
-          "Adds shine and softness",
-          "Suitable for all hair types",
-          "Professional results"
-        ],
-        ingredients: [
-          "Keratin Protein",
-          "Hyaluronic Acid",
-          "Argan Oil",
-          "Shea Butter",
-          "Vitamin E"
-        ],
-        inStock: false,
-        isNewProduct: false,
-        isBestSeller: false,
-        sku: "KG-NS-003",
-        weight: "400ml",
-        size: "Professional Kit",
-        stock: 0,
-        status: "out_of_stock"
-      },
-      {
-        name: "ChicComet Repair Range",
-        category: hairCareCategory._id,
-        price: 179.99,
-        originalPrice: null,
-        images: [
-          "/images/repair-range.jpeg",
-          "/images/repair-system.jpeg"
-        ],
-        rating: 4.5,
-        reviews: 45,
-        description: "Repair and restore damaged hair with our advanced repair range. Perfect for chemically treated or heat-damaged hair.",
-        features: [
-          "Advanced repair technology",
-          "Restores hair structure",
-          "Prevents future damage",
-          "Adds strength and elasticity",
-          "Professional results"
-        ],
-        ingredients: [
-          "Keratin Complex",
-          "Collagen",
-          "Biotin",
-          "Amino Acids",
-          "Natural Proteins"
-        ],
-        inStock: true,
-        isNewProduct: true,
-        isBestSeller: false,
-        sku: "KG-RR-004",
-        weight: "250ml",
-        size: "Standard",
-        stock: 60
-      },
-      {
-        name: "ChicComet Restructuring System",
-        category: treatmentCategory._id,
-        price: 329.99,
-        originalPrice: null,
-        images: [
-          "/images/restructuring-system.jpeg",
-          "/images/restructuring-range.jpeg"
-        ],
+        name: "Noise-Cancelling Headphones 700",
+        category: techCategory._id,
+        price: 299.00,
+        image: "/images/tech-headphones.jpg",
         rating: 4.9,
-        reviews: 156,
-        description: "Complete hair restructuring treatment that transforms your hair from the inside out. Our most advanced treatment system.",
-        features: [
-          "Complete hair restructuring",
-          "Long-lasting results",
-          "Safe for all hair types",
-          "Professional application kit",
-          "Results last up to 6 months"
-        ],
-        ingredients: [
-          "Advanced Keratin Complex",
-          "Hyaluronic Acid",
-          "Argan Oil",
-          "Vitamin E",
-          "Natural Extracts"
-        ],
+        reviews: 28,
+        description: "Premium over-ear noise-cancelling headphones. Perfect for focused work in busy offices.",
+        features: ["Active Noise Cancellation", "30-hour Battery Life", "Bluetooth 5.0", "Built-in Microphone"],
         inStock: true,
-        isNewProduct: false,
-        isBestSeller: true,
-        sku: "KG-RS-005",
-        weight: "600ml",
-        size: "Professional Kit",
-        stock: 25
+        sku: "TECH-NCH-002",
+        businessType: "B2B",
+        minOrderQuantity: 5
+      },
+
+      // Drinkware
+      {
+        name: "Smart Temperature Bottle",
+        category: drinkwareCategory._id,
+        price: 45.00,
+        image: "/images/drinkware-smartbottle.jpg",
+        rating: 4.7,
+        reviews: 150,
+        description: "Insulated stainless steel bottle with digital temperature display. Keeps drinks hot for 12 hours or cold for 24 hours.",
+        features: ["LED Temperature Display", "Double-wall Insulation", "Leak-proof Cap", "500ml Capacity"],
+        inStock: true,
+        sku: "DRK-STB-001",
+        businessType: "BOTH"
       },
       {
-        name: "ChicComet Regenerating Range",
-        category: hairCareCategory._id,
-        price: 159.99,
-        originalPrice: 199.99,
-        images: [
-          "/images/regenerating-range.jpeg",
-          "/images/regenerating-range.jpeg"
-        ],
-        rating: 4.4,
-        reviews: 32,
-        description: "Regenerate and revitalize your hair with our advanced regenerating range. Perfect for damaged and dull hair.",
-        features: [
-          "Hair regeneration technology",
-          "Restores natural shine",
-          "Improves hair texture",
-          "Suitable for daily use",
-          "Professional results"
-        ],
-        ingredients: [
-          "Keratin Complex",
-          "Collagen",
-          "Biotin",
-          "Amino Acids",
-          "Natural Proteins"
-        ],
+        name: "Classic Ceramic Mug",
+        category: drinkwareCategory._id,
+        price: 12.00,
+        image: "/images/drinkware-mug.jpg",
+        rating: 4.5,
+        reviews: 300,
+        description: "Timeless ceramic mug, perfect for office coffee. Large printing area for branding.",
+        features: ["Microwave Safe", "Dishwasher Safe", "350ml Capacity", "Matte Finish"],
         inStock: true,
-        isNewProduct: false,
-        isBestSeller: false,
-        sku: "KG-RG-006",
-        weight: "200ml",
-        size: "Standard",
-        stock: 40
+        sku: "DRK-CCM-002",
+        businessType: "B2B",
+        minOrderQuantity: 50
+      },
+
+      // Office Essentials
+      {
+        name: "Premium Leather Notebook",
+        category: officeCategory._id,
+        price: 25.00,
+        image: "/images/office-notebook.jpg",
+        rating: 4.8,
+        reviews: 85,
+        description: "A5 hardcover notebook with vegan leather cover. 192 lined pages of premium ivory paper.",
+        features: ["Vegan Leather Cover", "100gsm Ivory Paper", "Ribbon Bookmark", "Elastic Closure"],
+        inStock: true,
+        sku: "OFF-PLN-001",
+        businessType: "BOTH"
+      },
+      {
+        name: "Metal Rollerball Pen",
+        category: officeCategory._id,
+        price: 15.00,
+        image: "/images/office-pen.jpg",
+        rating: 4.6,
+        reviews: 120,
+        description: "Weighted metal rollerball pen for a smooth writing experience. Laser engravable.",
+        features: ["Black Ink", "0.7mm Tip", "Metal Body", "Gift Box Included"],
+        inStock: true,
+        sku: "OFF-MRP-002",
+        businessType: "B2B",
+        minOrderQuantity: 100
+      },
+
+      // Apparel
+      {
+        name: "Eco-Fleece Hoodie",
+        category: apparelCategory._id,
+        price: 55.00,
+        image: "/images/apparel-hoodie.jpg",
+        rating: 4.9,
+        reviews: 60,
+        description: "Super soft hoodie made from recycled materials and organic cotton. Sustainable comfort.",
+        features: ["Organic Cotton Blend", "Recycled Polyester", "Unisex Fit", "Kangaroo Pocket"],
+        inStock: true,
+        sku: "APP-EFH-001",
+        businessType: "BOTH",
+        attributes: [{ name: "Size", value: "L", type: "select" }]
+      },
+      {
+        name: "Performance Polo Shirt",
+        category: apparelCategory._id,
+        price: 35.00,
+        image: "/images/apparel-polo.jpg",
+        rating: 4.7,
+        reviews: 90,
+        description: "Moisture-wicking polo shirt for corporate events and uniforms. Wrinkle-resistant fabric.",
+        features: ["Moisture Wicking", "UV Protection", "Classic Fit", "Embroiderable"],
+        inStock: true,
+        sku: "APP-PPS-002",
+        businessType: "B2B",
+        minOrderQuantity: 20
+      },
+
+      // Welcome Kits
+      {
+        name: "Ultimate Onboarding Box",
+        category: welcomeKitCategory._id,
+        price: 150.00,
+        image: "/images/kit-onboarding.jpg",
+        rating: 5.0,
+        reviews: 25,
+        description: "The complete setup for new hires. Includes: Hoodie, Notebook, Pen, Bottle, and Stickers.",
+        features: ["Fully Customizable box", "Includes 5 premium items", "Eco-friendly packaging"],
+        inStock: true,
+        sku: "KIT-UOB-001",
+        businessType: "B2B",
+        minOrderQuantity: 10
+      },
+      {
+        name: "VIP Client Gift Set",
+        category: welcomeKitCategory._id,
+        price: 200.00,
+        image: "/images/kit-vip.jpg",
+        rating: 5.0,
+        reviews: 15,
+        description: "Impress your top clients with this luxury gift set. Includes: Premium Tech Organizer, Wireless Charger, and Insulated Tumbler.",
+        features: ["Luxury Packaging", "Premium Tech Items", "Personalized Note Card"],
+        inStock: true,
+        sku: "KIT-VIP-002",
+        businessType: "B2B",
+        minOrderQuantity: 5
       }
     ]
 
@@ -253,17 +216,17 @@ const seedData = async () => {
     const users = [
       {
         name: "Admin User",
-        email: "Admin@chiccomet.com",
+        email: "Admin@chiccomet.com", // Case matching request
         password: "Rahul6375@@@",
         role: "admin",
         status: "active",
-        phone: "+1 (555) 000-0000",
+        phone: "+971 50 000 0000",
         address: {
-          street: "789 Admin St",
-          city: "Admin City",
-          state: "AC",
+          street: "Business Bay",
+          city: "Dubai",
+          state: "Dubai",
           zipCode: "00000",
-          country: "US"
+          country: "AE"
         },
         preferences: {
           emailNotifications: true,
@@ -277,18 +240,18 @@ const seedData = async () => {
         }
       },
       {
-        name: "John Doe",
-        email: "john@example.com",
+        name: "Corporate Buyer",
+        email: "buyer@example.com",
         password: "password123",
         role: "customer",
         status: "active",
-        phone: "+1 (555) 123-4567",
+        phone: "+971 55 123 4567",
         address: {
-          street: "123 Main St",
-          city: "New York",
-          state: "NY",
-          zipCode: "10001",
-          country: "US"
+          street: "Sheikh Zayed Road",
+          city: "Dubai",
+          state: "Dubai",
+          zipCode: "00000",
+          country: "AE"
         },
         preferences: {
           emailNotifications: true,
@@ -296,34 +259,9 @@ const seedData = async () => {
           marketingEmails: true
         },
         stats: {
-          totalOrders: 5,
-          totalSpent: 1299.95,
+          totalOrders: 2,
+          totalSpent: 2500.00,
           lastOrderDate: new Date("2024-01-15")
-        }
-      },
-      {
-        name: "Jane Smith",
-        email: "jane@example.com",
-        password: "password123",
-        role: "customer",
-        status: "active",
-        phone: "+1 (555) 987-6543",
-        address: {
-          street: "456 Oak Ave",
-          city: "Dubai",
-          state: "CA",
-          zipCode: "90210",
-          country: "US"
-        },
-        preferences: {
-          emailNotifications: true,
-          smsNotifications: true,
-          marketingEmails: false
-        },
-        stats: {
-          totalOrders: 3,
-          totalSpent: 599.97,
-          lastOrderDate: new Date("2024-01-14")
         }
       }
     ]

@@ -17,27 +17,27 @@ interface HeroSlide {
 const heroSlides: HeroSlide[] = [
   {
     id: "slide-1",
-    subtitle: "TRUSTED LINEN EXCELLENCE SINCE 1984",
-    title: "My Comfort, Perfected by Whitlin",
-    linkText: "Shop New Arrivals",
+    subtitle: "PREMIUM CORPORATE GIFTING",
+    title: "Elevate Your Brand Experience",
+    linkText: "Shop Corporate Gifts",
     linkHref: "/products",
-    image: "/images/refresh/hero-bedroom.jpg",
+    image: "/images/hero-corporate.jpg",
   },
   {
     id: "slide-2",
-    subtitle: "PREMIUM HOSPITALITY LINEN",
-    title: "Elevate Your Everyday Living",
-    linkText: "Explore Products",
-    linkHref: "/products",
-    image: "/images/refresh/istock-white-bed.jpg",
+    subtitle: "CUSTOM BRANDING SOLUTIONS",
+    title: "Your Logo, On Premium Products",
+    linkText: "Explore Customization",
+    linkHref: "/custom-orders",
+    image: "/images/hero-branding.jpg",
   },
   {
     id: "slide-3",
-    subtitle: "LUXURY BED & BATH COLLECTION",
-    title: "Your Linen Journey Begins Here",
-    linkText: "View Collections",
-    linkHref: "/collections",
-    image: "/images/refresh/hero-lifestyle.jpg",
+    subtitle: "EMPLOYEE WELCOME KITS",
+    title: "Curated Unboxing Experiences",
+    linkText: "View Welcome Kits",
+    linkHref: "/collections/welcome-kits",
+    image: "/images/hero-kits.jpg",
   },
 ];
 
@@ -92,11 +92,10 @@ export function HeroSlider() {
             {heroSlides.map((slide, index) => (
               <div
                 key={slide.id}
-                className={`transition-all duration-700 ease-out ${
-                  index === currentSlide
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-4 absolute pointer-events-none"
-                }`}
+                className={`transition-all duration-700 ease-out ${index === currentSlide
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4 absolute pointer-events-none"
+                  }`}
               >
                 {/* Subtitle - Small uppercase */}
                 <p className="text-white/80 text-xs sm:text-sm tracking-[0.2em] uppercase mb-3 sm:mb-4 font-light">
@@ -133,11 +132,10 @@ export function HeroSlider() {
                 setTimeout(() => setIsTransitioning(false), 100);
               }, 100);
             }}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentSlide
-                ? "bg-white w-6"
-                : "bg-white/50 hover:bg-white/70"
-            }`}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentSlide
+              ? "bg-white w-6"
+              : "bg-white/50 hover:bg-white/70"
+              }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}

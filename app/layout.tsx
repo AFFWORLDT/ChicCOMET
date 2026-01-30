@@ -35,12 +35,12 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: "ChicComet - Premium Hospitality Linen",
+    default: "ChicComet - Premium Corporate Gifting",
     template: "%s | ChicComet"
   },
   description:
-    "ChicComet L.L.C- FZ - Trusted Linen Excellence. Discover premium-quality linen crafted with care and expertise. From luxurious duvets, bed sheets, and duvet covers to plush towels and more - ChicComet has been delivering comfort, style, and durability for over four decades around the globe. We proudly serve both B2B and B2C markets.",
-  keywords: ["hospitality linen", "bed linen", "bath linen", "hotel linen", "luxury sheets", "cotton sheets", "Egyptian cotton"],
+    "ChicComet L.L.C- FZ - Elevate your brand with premium corporate gifting solutions. From custom merchandising and employee welcome kits to sustainable tech and drinkware. We specialize in creating memorable brand experiences for teams and clients worldwide.",
+  keywords: ["corporate gifting", "custom merch", "company swag", "employee welcome kits", "sustainable gifts", "promotional products", "branded tech", "corporate apparel"],
   authors: [{ name: "ChicComet" }],
   creator: "ChicComet",
   publisher: "ChicComet",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://whitlin.com'),
+  metadataBase: new URL('https://chiccomet.com'),
   alternates: {
     canonical: '/',
   },
@@ -57,14 +57,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://chiccomet.com',
-    title: 'ChicComet - Trusted Linen Excellence',
-    description: 'Trusted Linen Excellence. Premium-quality linen crafted with care and expertise. From luxurious duvets, bed sheets, and duvet covers to plush towels and more.',
+    title: 'ChicComet - Premium Corporate Gifting Solutions',
+    description: 'Elevate your brand with premium corporate gifting solutions. Custom merchandising, welcome kits, and sustainable products for your team and clients.',
     siteName: 'ChicComet',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ChicComet - Trusted Linen Excellence',
-    description: 'Trusted Linen Excellence Since 1984. Premium-quality linen crafted with care and expertise. From luxurious duvets, bed sheets, and duvet covers to plush towels and more.',
+    title: 'ChicComet - Premium Corporate Gifting',
+    description: 'Elevate your brand with premium corporate gifting solutions. Custom merchandising, welcome kits, and sustainable products.',
   },
   robots: {
     index: true,

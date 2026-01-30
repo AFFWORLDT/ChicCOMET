@@ -17,39 +17,39 @@ interface DiscoverItem {
 const discoverItems: DiscoverItem[] = [
   {
     id: "1",
-    title: "The Making of Premium Linen",
+    title: "Sustainable Gifting",
     description:
-      "Discover the craftsmanship behind our finest fabrics, from raw cotton to luxurious finish.",
+      "Eco-friendly choices for a greener future. Sustainable materials meets premium design.",
     linkText: "EXPLORE",
-    image: "/image/image8.jpg",
-    href: "/about",
+    image: "/images/discover-eco.jpg",
+    href: "/collections/eco-friendly",
   },
   {
     id: "2",
-    title: "The Icons Collection",
+    title: "Tech Essentials",
     description:
-      "Timeless pieces that define luxury living. Our most celebrated designs reimagined.",
+      "Power up your team with premium gadgets. Wireless chargers, headphones, and more.",
     linkText: "SHOP",
-    image: "/image/image9.jpg",
-    href: "/products",
+    image: "/images/discover-tech.jpg",
+    href: "/collections/tech",
   },
   {
     id: "3",
-    title: "The Ritz Carlton, Dubai Hotel Story",
+    title: "The Art of Branding",
     description:
-      "Experience how Whitlin transforms premium hospitality spaces worldwide.",
+      "Precision laser engraving and high-quality printing to make your brand shine.",
     linkText: "DISCOVER",
-    image: "/image/image10.jpg",
-    href: "/about",
+    image: "/images/discover-branding.jpg",
+    href: "/services/branding",
   },
   {
     id: "4",
-    title: "The Ritz Carlton, Dubai Hotel Story",
+    title: "Bulk Operations",
     description:
-      "A partnership of excellence. Crafting comfort for the world's finest hotels.",
-    linkText: "DISCOVER",
-    image: "/image/image11.jpg",
-    href: "/about",
+      "Seamless procurement for large teams with our dedicated B2B logistics.",
+    linkText: "LEARN MORE",
+    image: "/images/discover-bulk.jpg",
+    href: "/services/bulk",
   },
 ];
 
@@ -61,7 +61,7 @@ export function DiscoverSection() {
       <div className="mx-auto px-4 ">
         {/* Header */}
         <h2 className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-900 font-light italic mb-6 sm:mb-8 md:mb-10">
-          Discover the World of Whitlin
+          Discover Corporate Solutions
         </h2>
 
         {/* Mobile Grid (2x2) */}
