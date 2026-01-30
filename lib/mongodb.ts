@@ -13,7 +13,7 @@ if (!cached) {
 
 async function connectDB(retries = 5): Promise<typeof import('mongoose')> {
   // MongoDB connection string
-  const MONGO_URI = process.env.MONGODB_URI || 'mongodb+srv://info_db_user:GaB2FhLOZYuuVeSQ@dubaicluster0.vhpvzim.mongodb.net/whitlin-ecommerce-new'
+  const MONGO_URI = process.env.MONGODB_URI || 'mongodb+srv://info_db_user:GaB2FhLOZYuuVeSQ@dubaicluster0.vhpvzim.mongodb.net/ChicComet'
 
   if (!process.env.MONGODB_URI) {
     console.warn('MONGODB_URI not found in environment variables, using hardcoded fallback. Please add MONGODB_URI to .env.local')

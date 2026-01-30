@@ -1,7 +1,7 @@
 
 import mongoose from 'mongoose';
 
-const MONGO_URI = 'mongodb+srv://affworldtechnologies:wMbiyR0ZM8JWfOYl@loc.6qmwn3p.mongodb.net/whitlin-ecommerce-new?retryWrites=true&w=majority';
+const MONGO_URI = 'mongodb+srv://info_db_user:GaB2FhLOZYuuVeSQ@dubaicluster0.vhpvzim.mongodb.net/ChicComet?retryWrites=true&w=majority';
 
 async function testConnection() {
   try {
