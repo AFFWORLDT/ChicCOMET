@@ -31,7 +31,7 @@ export function Logo({ size = "md", href = "/", className = "", showText = false
 
   const handleImageError = useCallback(() => {
     const nextIndex = currentIndex + 1
-    
+
     if (nextIndex < logoPaths.length) {
       // Try next fallback image
       setCurrentIndex(nextIndex)
@@ -51,7 +51,7 @@ export function Logo({ size = "md", href = "/", className = "", showText = false
           <img
             key={`${imageSrc}-${currentIndex}`}
             src={imageSrc}
-            alt="Whitlin Logo"
+            alt="ChicComet Logo"
             className="h-full w-auto object-contain object-center"
             style={{ maxWidth: '100%', height: '100%' }}
             onError={handleImageError}

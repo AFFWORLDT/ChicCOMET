@@ -1,6 +1,7 @@
 import connectDB from './mongodb'
 import Product from './models/Product'
 import User from './models/User'
+import Category from './models/Category'
 
 const seedData = async () => {
   try {
@@ -10,13 +11,33 @@ const seedData = async () => {
     // Clear existing data
     await Product.deleteMany({})
     await User.deleteMany({})
+    await Category.deleteMany({})
     console.log('Cleared existing data')
 
-    // Seed Products
+    // 1. Seed Categories first
+    const treatmentCategory = await Category.create({
+      name: "Treatment Systems",
+      description: "Professional hair treatment systems",
+      isActive: true,
+      sortOrder: 1,
+      attributes: [{ name: "Size", type: "text", required: true }]
+    })
+
+    const hairCareCategory = await Category.create({
+      name: "Hair Care",
+      description: "Daily hair care products",
+      isActive: true,
+      sortOrder: 2,
+      attributes: [{ name: "Size", type: "text", required: true }]
+    })
+
+    console.log('Seeded categories')
+
+    // 2. Seed Products with Category IDs
     const products = [
       {
-        name: "Whitlin Expert Liss System",
-        category: "Treatment Systems",
+        name: "ChicComet Expert Liss System",
+        category: treatmentCategory._id,
         price: 299.99,
         originalPrice: 349.99,
         image: "/images/expert-liss-system.jpeg",
@@ -51,8 +72,8 @@ const seedData = async () => {
         status: "active"
       },
       {
-        name: "Whitlin Inforcer Range",
-        category: "Hair Care",
+        name: "ChicComet Inforcer Range",
+        category: hairCareCategory._id,
         price: 199.99,
         originalPrice: null,
         image: "/images/inforcer-range.jpeg",
@@ -87,8 +108,8 @@ const seedData = async () => {
         status: "active"
       },
       {
-        name: "Whitlin Nourishing System",
-        category: "Treatment Systems",
+        name: "ChicComet Nourishing System",
+        category: treatmentCategory._id,
         price: 249.99,
         originalPrice: 299.99,
         images: [
@@ -122,8 +143,8 @@ const seedData = async () => {
         status: "out_of_stock"
       },
       {
-        name: "Whitlin Repair Range",
-        category: "Hair Care",
+        name: "ChicComet Repair Range",
+        category: hairCareCategory._id,
         price: 179.99,
         originalPrice: null,
         images: [
@@ -156,8 +177,8 @@ const seedData = async () => {
         stock: 60
       },
       {
-        name: "Whitlin Restructuring System",
-        category: "Treatment Systems",
+        name: "ChicComet Restructuring System",
+        category: treatmentCategory._id,
         price: 329.99,
         originalPrice: null,
         images: [
@@ -190,13 +211,13 @@ const seedData = async () => {
         stock: 25
       },
       {
-        name: "Whitlin Regenerating Range",
-        category: "Hair Care",
+        name: "ChicComet Regenerating Range",
+        category: hairCareCategory._id,
         price: 159.99,
         originalPrice: 199.99,
         images: [
           "/images/regenerating-range.jpeg",
-          "/images/regenerating-system.jpeg"
+          "/images/regenerating-range.jpeg"
         ],
         rating: 4.4,
         reviews: 32,
@@ -228,12 +249,12 @@ const seedData = async () => {
     await Product.insertMany(products)
     console.log('Seeded products')
 
-    // Seed Users
+    // 3. Seed Users
     const users = [
       {
         name: "Admin User",
-        email: "admin@whitlin.com",
-        password: "admin123",
+        email: "Admin@chiccomet.com",
+        password: "Rahul6375@@@",
         role: "admin",
         status: "active",
         phone: "+1 (555) 000-0000",

@@ -35,15 +35,15 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: "Whitlin - Premium Hospitality Linen",
-    template: "%s | Whitlin"
+    default: "ChicComet - Premium Hospitality Linen",
+    template: "%s | ChicComet"
   },
   description:
-    "WHITLIN L.L.C- FZ - Trusted Linen Excellence Since 1984. Discover premium-quality linen crafted with care and expertise. From luxurious duvets, bed sheets, and duvet covers to plush towels and more - Whitlin has been delivering comfort, style, and durability for over four decades around the globe. We proudly serve both B2B and B2C markets.",
+    "ChicComet L.L.C- FZ - Trusted Linen Excellence. Discover premium-quality linen crafted with care and expertise. From luxurious duvets, bed sheets, and duvet covers to plush towels and more - ChicComet has been delivering comfort, style, and durability for over four decades around the globe. We proudly serve both B2B and B2C markets.",
   keywords: ["hospitality linen", "bed linen", "bath linen", "hotel linen", "luxury sheets", "cotton sheets", "Egyptian cotton"],
-  authors: [{ name: "Whitlin" }],
-  creator: "Whitlin",
-  publisher: "Whitlin",
+  authors: [{ name: "ChicComet" }],
+  creator: "ChicComet",
+  publisher: "ChicComet",
   formatDetection: {
     email: false,
     address: false,
@@ -56,14 +56,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://whitlin.com',
-    title: 'Whitlin - Trusted Linen Excellence Since 1984',
-    description: 'Trusted Linen Excellence Since 1984. Premium-quality linen crafted with care and expertise. From luxurious duvets, bed sheets, and duvet covers to plush towels and more.',
-    siteName: 'Whitlin',
+    url: 'https://chiccomet.com',
+    title: 'ChicComet - Trusted Linen Excellence',
+    description: 'Trusted Linen Excellence. Premium-quality linen crafted with care and expertise. From luxurious duvets, bed sheets, and duvet covers to plush towels and more.',
+    siteName: 'ChicComet',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Whitlin - Trusted Linen Excellence Since 1984',
+    title: 'ChicComet - Trusted Linen Excellence',
     description: 'Trusted Linen Excellence Since 1984. Premium-quality linen crafted with care and expertise. From luxurious duvets, bed sheets, and duvet covers to plush towels and more.',
   },
   robots: {

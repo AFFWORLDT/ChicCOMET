@@ -1,5 +1,5 @@
-      # Whitlin Ecommerce Platform  
-एक complete ecommerce platform जो Whitlin hair care products के लिए बनाया गया है। यह platform Next.js 15, React 19, और Tailwind CSS पर बना है।
+# ChicComet Ecommerce Platform  
+एक complete ecommerce platform जो ChicComet hospitality linen products के लिए बनाया गया है। यह platform Next.js 15, React 19, और Tailwind CSS पर बना है।
 
 ## 🚀 Features
 ### 🛍️ Customer Features
@@ -113,8 +113,8 @@ ecommerce/
 ## 👤 Test Accounts
 
 ### Admin Account
-- **Email**: admin@whitlin.com
-- **Password**: admin123
+- **Email**: admin@chiccomet.com
+- **Password**: Rahul6375@@@
 - **Access**: Full admin panel access
 
 ### Customer Account
@@ -265,4 +265,4 @@ For support and questions:
 
 ---
 
-**Whitlin Ecommerce Platform** - Professional hair care products for everyone! 💇‍♀️✨
+**ChicComet Ecommerce Platform** - Premium hospitality linen products for your comfort! 🛌✨

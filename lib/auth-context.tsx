@@ -32,7 +32,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const encodedValue = encodeURIComponent(userDataString)
       const isProduction = window.location.hostname !== 'localhost'
       // Set cookie with 7 days expiration (604800 seconds)
-      const cookieString = `whitlin_user=${encodedValue}; path=/; max-age=604800; SameSite=Lax${isProduction ? '; Secure' : ''}`
+      const cookieString = `chiccomet_user=${encodedValue}; path=/; max-age=604800; SameSite=Lax${isProduction ? '; Secure' : ''}`
       document.cookie = cookieString
     }
   }
@@ -55,7 +55,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setIsLoading(true)
         try {
           // First check localStorage
-          const savedUser = localStorage.getItem("whitlin_user")
+          const savedUser = localStorage.getItem("chiccomet_user")
           if (savedUser) {
             try {
               const userData = JSON.parse(savedUser)
@@ -66,25 +66,25 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
               return
             } catch (error) {
               console.error('Error parsing user data from localStorage:', error)
-              localStorage.removeItem("whitlin_user")
+              localStorage.removeItem("chiccomet_user")
             }
           }
 
           // Also check cookie (in case localStorage was cleared but cookie exists)
-          const cookieValue = getCookie('whitlin_user')
+          const cookieValue = getCookie('chiccomet_user')
           if (cookieValue) {
             try {
               const decodedValue = decodeURIComponent(cookieValue)
               const userData = JSON.parse(decodedValue)
               setUser(userData)
               // Sync to localStorage
-              localStorage.setItem("whitlin_user", JSON.stringify(userData))
+              localStorage.setItem("chiccomet_user", JSON.stringify(userData))
               setIsLoading(false)
               return
             } catch (error) {
               console.error('Error parsing user data from cookie:', error)
               // Clear invalid cookie
-              document.cookie = "whitlin_user=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT"
+              document.cookie = "chiccomet_user=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT"
             }
           }
 
@@ -97,7 +97,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setIsLoading(false)
       }
     }
-    
+
     checkAuth()
   }, [])
 
@@ -126,7 +126,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setUser(userData)
         if (typeof window !== 'undefined') {
           // Store in localStorage
-          localStorage.setItem("whitlin_user", JSON.stringify(userData))
+          localStorage.setItem("chiccomet_user", JSON.stringify(userData))
           // Set cookie for middleware (server should also set it, but ensure it's set client-side too)
           setAuthCookie(userData)
         }
@@ -166,7 +166,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         }
         setUser(userData)
         if (typeof window !== 'undefined') {
-          localStorage.setItem("whitlin_user", JSON.stringify(userData))
+          localStorage.setItem("chiccomet_user", JSON.stringify(userData))
         }
         setIsLoading(false)
         return true
@@ -184,18 +184,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   // Initialize with admin user for testing
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const users = JSON.parse(localStorage.getItem("whitlin_users") || "[]")
-      const adminExists = users.find((u: any) => u.email === "admin@whitlin.com")
-      
+      const users = JSON.parse(localStorage.getItem("chiccomet_users") || "[]")
+      const adminExists = users.find((u: any) => u.email === "admin@chiccomet.com")
+
       if (!adminExists) {
         const adminUser = {
           id: "admin-001",
-          email: "admin@whitlin.com",
-          password: "admin123",
+          email: "admin@chiccomet.com",
+          password: "Rahul6375@@@",
           name: "Admin User",
         }
         users.push(adminUser)
-        localStorage.setItem("whitlin_users", JSON.stringify(users))
+        localStorage.setItem("chiccomet_users", JSON.stringify(users))
       }
     }
   }, [])
@@ -203,10 +203,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const logout = () => {
     setUser(null)
     if (typeof window !== 'undefined') {
-      localStorage.removeItem("whitlin_user")
+      localStorage.removeItem("chiccomet_user")
       // Clear cookie - set multiple variations to ensure it's cleared
-      document.cookie = "whitlin_user=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT"
-      document.cookie = "whitlin_user=; path=/; max-age=0"
+      document.cookie = "chiccomet_user=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT"
+      document.cookie = "chiccomet_user=; path=/; max-age=0"
     }
   }
 

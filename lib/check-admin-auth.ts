@@ -7,26 +7,26 @@ import { NextRequest, NextResponse } from 'next/server'
 export function checkAdminAuth(request: NextRequest): { id: string; email: string; role: string } | null {
   try {
     // Get cookie from request
-    const token = request.cookies.get('whitlin_user')?.value
-    
+    const token = request.cookies.get('chiccomet_user')?.value
+
     if (!token) {
       return null
     }
-    
+
     try {
       // Decode the URL-encoded cookie value
       const decodedToken = decodeURIComponent(token)
       const userData = JSON.parse(decodedToken)
-      
+
       // Check if user is admin
-      if (userData.role === 'admin' || userData.email === 'admin@whitlin.com') {
+      if (userData.role === 'admin' || userData.email === 'admin@chiccomet.com') {
         return {
           id: userData.id || userData._id,
           email: userData.email,
           role: userData.role || 'admin'
         }
       }
-      
+
       return null
     } catch (error) {
       console.error('Error parsing admin auth token:', error)
@@ -45,14 +45,14 @@ export function checkAdminAuth(request: NextRequest): { id: string; email: strin
  */
 export function requireAdmin(request: NextRequest): NextResponse | null {
   const admin = checkAdminAuth(request)
-  
+
   if (!admin) {
     return NextResponse.json(
       { success: false, error: 'Unauthorized. Admin access required.' },
       { status: 401 }
     )
   }
-  
+
   return null // Return null if authorized (continue processing)
 }
 

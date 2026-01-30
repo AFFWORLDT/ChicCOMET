@@ -7,14 +7,14 @@ export interface EmailTemplate {
 export const emailTemplates = {
   // Welcome email template
   welcome: (userData: { name: string; email: string }): EmailTemplate => ({
-    subject: "Welcome to Whitlin - Your Premium Linen Journey Begins!",
+    subject: "Welcome to ChicComet - Your Premium Linen Journey Begins!",
     html: `
       <!DOCTYPE html>
       <html>
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Welcome to Whitlin</title>
+        <title>Welcome to ChicComet</title>
         <style>
           body { margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f5f5f5; }
           .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; }
@@ -30,13 +30,13 @@ export const emailTemplates = {
       <body>
         <div class="container">
           <div class="header">
-            <h1 style="margin: 0; font-size: 32px;">Welcome to Whitlin!</h1>
+            <h1 style="margin: 0; font-size: 32px;">Welcome to ChicComet!</h1>
             <p style="margin: 10px 0 0 0; font-size: 18px; opacity: 0.9;">Professional  Premium Linen Solutions</p>
           </div>
           <div class="content">
             <h2 style="color: #333; margin-bottom: 20px;">Hello ${userData.name}!</h2>
             <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">
-              Welcome to the Whitlin family! We're thrilled to have you join our community of  Premium Linen enthusiasts 
+              Welcome to the ChicComet family! We're thrilled to have you join our community of Premium Linen enthusiasts 
               who believe in the power of professional-grade treatments.
             </p>
             
@@ -51,7 +51,7 @@ export const emailTemplates = {
             </div>
 
             <div style="text-align: center; margin: 30px 0;">
-               <a href="${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.whitlin.com'}/products" class="button">
+               <a href="${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.chiccomet.com'}/products" class="button">
                 Explore Our Products
               </a>
             </div>
@@ -70,10 +70,10 @@ export const emailTemplates = {
             </div>
           </div>
           <div class="footer">
-            <p style="margin: 0 0 10px 0;">© 2025 Whitlin. All rights reserved.</p>
+            <p style="margin: 0 0 10px 0;">© 2025 ChicComet. All rights reserved.</p>
             <div class="unsubscribe">
               <a href="UNSUBSCRIBE_TOKEN">Unsubscribe</a> | 
-              <a href="mailto:info@whitlin.com">Contact Support</a>
+              <a href="mailto:info@chiccomet.com">Contact Support</a>
             </div>
           </div>
         </div>
@@ -100,11 +100,11 @@ export const emailTemplates = {
       Pro Tip: Start with our Keratin Treatment Starter Kit for the best introduction to 
       professional  Premium Linen. It includes everything you need for your first treatment!
       
-      Explore our products: ${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.whitlin.com'}/products
+      Explore our products: ${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.chiccomet.com'}/products
       
-      © 2025 Whitlin. All rights reserved.
+      © 2025 ChicComet. All rights reserved.
       Unsubscribe: UNSUBSCRIBE_TOKEN
-      Contact Support: support@whitlin.com
+      Contact Support: support@chiccomet.com
     `
   }),
 
@@ -168,10 +168,10 @@ export const emailTemplates = {
             </p>
           </div>
           <div class="footer">
-            <p style="margin: 0 0 10px 0;">© 2025 Whitlin. All rights reserved.</p>
+            <p style="margin: 0 0 10px 0;">© 2025 ChicComet. All rights reserved.</p>
             <div class="unsubscribe">
               <a href="UNSUBSCRIBE_TOKEN">Unsubscribe</a> | 
-              <a href="mailto:info@whitlin.com">Contact Support</a>
+              <a href="mailto:info@chiccomet.com">Contact Support</a>
             </div>
           </div>
         </div>
@@ -271,10 +271,10 @@ export const emailTemplates = {
             </p>
           </div>
           <div class="footer">
-            <p style="margin: 0 0 10px 0;">© 2025 Whitlin. All rights reserved.</p>
+            <p style="margin: 0 0 10px 0;">© 2025 ChicComet. All rights reserved.</p>
             <div class="unsubscribe">
               <a href="UNSUBSCRIBE_TOKEN">Unsubscribe</a> | 
-              <a href="mailto:info@whitlin.com">Contact Support</a>
+              <a href="mailto:info@chiccomet.com">Contact Support</a>
             </div>
           </div>
         </div>
@@ -369,10 +369,10 @@ export const emailTemplates = {
             </p>
           </div>
           <div class="footer">
-            <p style="margin: 0 0 10px 0;">© 2025 Whitlin. All rights reserved.</p>
+            <p style="margin: 0 0 10px 0;">© 2025 ChicComet. All rights reserved.</p>
             <div class="unsubscribe">
               <a href="UNSUBSCRIBE_TOKEN">Unsubscribe</a> | 
-              <a href="mailto:info@whitlin.com">Contact Support</a>
+              <a href="mailto:info@chiccomet.com">Contact Support</a>
             </div>
           </div>
         </div>
